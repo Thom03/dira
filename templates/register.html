@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}DIRA :: Register{% endblock %}
+
+
+{% block content %}
+<hr>
+        <div class="container">
+          <div class="row">           
+            <div class='col-md-6 col-sm-offset-2' >
+                    <div class="form-info">
+                   
+                        <form  role="form" action="{% url 'register_user' %}" method="post">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+                                {% endfor %}
+                            {% endif %}
+                             {% csrf_token %}
+                            {{ form|crispy }} 
+                            <br>                         
+                            <button class='btn btn-block btn-primary' type="submit"><i class="fa fa-user-plus" aria-hidden="true"></i> Create Account</button>
+                        </form> 
+                      
+                        <div class="separator-2"></div>
+                        <h4>Already have an account?</h4>
+                        <a role="button" class="btn btn btn-brandmine" href="/accounts/login/"><i class="fa fa-sign-in" aria-hidden="true"></i> Login Here</a>
+                    </div>
+            </div>
+                 
+            </div>
+            <br>
+             
+          
+        </div>
+      <hr>
+
+
+{% endblock %}

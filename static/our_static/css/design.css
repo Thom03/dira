@@ -1,0 +1,28 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	
+
+	
+}
+
+.header-connect{
+	background-color: #e7e7e7;
+
+}
+
+
+
+.btn-primary{
+	background-color: #00AEEF;
+	border-color: #00AEEF;
+
+}
+
+.social-icns {
+ width: 200px;
+ display: block;
+  margin-right: auto;
+   margin-left: auto; 
+   margin-bottom: 2em;}
+
+

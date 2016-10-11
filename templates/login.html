@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}NLIMS :: Login{% endblock %}
+{% load bootstrap3 %}
+{% load bootstrap_toolkit %}
+{% block content %} 
+<hr>
+	<div class="container">
+		<div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <h2 class="text-center">Login </h2>
+              <div class="separator"></div>              
+            </div>
+       
+		<div class="col-md-8 col-md-offset-2" >
+				<div class="col-md-8 col-md-offset-2" align="center" style="background-color: #eee;border-radius: 25px">
+				<img src="{% static 'img/logo1.png' %}" alt="Nakuru LIMS"><br>
+					<form class="form-signin" role="form" method="post" action="{% url 'login' %}">
+						{% csrf_token %}
+							{% if messages %}
+			                    {% for message in messages %}
+			                        <div class="alert alert-danger alert-dismissable">
+			                            {{message}}
+			                        </div>
+			                    {% endfor %}
+			                {% endif %} 
+			                 <div class="form-group input-group">
+					            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					            <input class="form-control" placeholder="Username" id="id_username" name="username" type="text" required autofocus/>          
+					          </div>
+					          <div class="form-group input-group">
+					            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					            <input type="password" class="form-control" placeholder="Password" id="id_password" name="password" type="password" required /><br>     
+					          </div>			
+							
+							<input type="hidden" name="next" value="{{ next }}">
+							<button class="btn   btn-primary btn-brandmine" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i>  Sign In</button>							
+					</form>
+					<h4>Forgot your password?</h4>
+                    <a href="{% url 'password_reset' %}">  Reset Password</a>
+					<h4>Don't have an account?</h4>
+                    <a href="/register/">  Register Here</a>
+				</div>
+				
+				
+		</div>
+		<br>
+	</div>
+</div>
+<hr>
+{% endblock %}
